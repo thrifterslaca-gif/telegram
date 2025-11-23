@@ -216,6 +216,7 @@ async def handle_admin_approval(update: Update, context: ContextTypes.DEFAULT_TY
         result = cursor.fetchone()
         if not result:
             await query.edit_message_text("Error: Order not found.")
+            conn.close()
             return
         user_id_to_notify, username = result
         if decision == "approve":

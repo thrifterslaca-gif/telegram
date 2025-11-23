@@ -1,0 +1,19 @@
+[Unit]
+Description=Telegram Seller Bot
+After=network.target
+
+[Service]
+# Change this to your username
+User=root
+# Change this to the absolute path of your project directory
+WorkingDirectory=/path/to/your/project
+# Command to execute (uses the wrapper script)
+ExecStart=/path/to/your/project/scripts/start_bot.sh
+# Restart automatically if it crashes
+Restart=always
+RestartSec=10
+# Environment variables can also be set here
+# Environment="BOT_TOKEN=your_token_here"
+
+[Install]
+WantedBy=multi-user.target
